@@ -1,4 +1,5 @@
 
+"Scenario 5: A calm day with "
 
 { "sequentialPackage": 1, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	 { "stress": false }
 { "sequentialPackage": 2, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
