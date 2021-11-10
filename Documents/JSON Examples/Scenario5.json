@@ -1,0 +1,50 @@
+
+
+{ "sequentialPackage": 1, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	 { "stress": false }
+{ "sequentialPackage": 2, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 3, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 4, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 5, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 6, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 7, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 8, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 9, "maxAmplitude": "very low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 10, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": true }
+{ "sequentialPackage": 11, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": true }
+{ "sequentialPackage": 12, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "medium", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 13, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 14, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 15, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 16, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 17, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 18, "maxAmplitude": "very low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 19, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 20, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 21, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "medium", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 22, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "medium", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 23, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "medium", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 24, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 25, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 26, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 27, "maxAmplitude": "very low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 28, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 29, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 30, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 31, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 32, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 33, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 34, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 35, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 36, "maxAmplitude": "very low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 37, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 38, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 39, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 40, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 41, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 42, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 43, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 44, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 45, "maxAmplitude": "very low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 46, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 47, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "calm" }	"->"	{ "stress": false }
+{ "sequentialPackage": 48, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "calm" }	"->"	{ "stress": false }

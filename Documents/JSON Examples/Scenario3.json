@@ -1,0 +1,52 @@
+
+"Scenario 3: A day starting calm but having 2 periods of stressful situations."
+
+
+{ "sequentialPackage": 1, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	 { "stress": false }
+{ "sequentialPackage": 2, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 3, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 4, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 5, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 6, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 7, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 8, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 9, "maxAmplitude": "very low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 10, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 11, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 12, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 13, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 14, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 15, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 16, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 17, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 18, "maxAmplitude": "very low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 19, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 20, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 21, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 22, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 23, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 24, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 25, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "medium", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 26, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 27, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 28, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "medium", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 29, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 30, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "medium", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 31, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 32, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "medium", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 33, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 34, "maxAmplitude": "very low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 35, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 36, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 37, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 38, "maxAmplitude": "medium", "fiveMinuteAverageAmplitude": " very low", "halfHourAverageAmplitude": "low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 39, "maxAmplitude": "low", "fiveMinuteAverageAmplitude": " low", "halfHourAverageAmplitude": "very low", "mood": "stressed" }	"->"	{ "stress": false }
+{ "sequentialPackage": 40, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 41, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 42, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "medium", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 43, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 44, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "medium", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 45, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 46, "maxAmplitude": "high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "medium", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 47, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " high", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
+{ "sequentialPackage": 48, "maxAmplitude": "very high", "fiveMinuteAverageAmplitude": " medium", "halfHourAverageAmplitude": "high", "mood": "stressed" }	"->"	{ "stress": true }
