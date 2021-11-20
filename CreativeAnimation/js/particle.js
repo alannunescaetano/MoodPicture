@@ -28,10 +28,11 @@ class Particle {
   
   update() {
     this.velocity.add(this.acceleration);
-    this.position.add(this.velocity.limit(20));
+    this.velocity = this.velocity.limit(20);
+    this.position.add(this.velocity);
   }
   
-  applyFrictionFromEdges() {
+  applyFrictionFromEdges(edgeLength) {
     var frictionIntensity = map(
       p5.Vector.sub(createVector(half, half), this.position).mag(),
       0,
@@ -40,13 +41,14 @@ class Particle {
       1
     );
 
-    var canvasQuarter = width/4;
-    if(true) {
-      if(frictionIntensity < 0)
-         frictionIntensity = frictionIntensity * -1;
+    let canvasFirstQuarter = edgeLength;
+    let canvasLastQuarter = width - edgeLength;
 
+    if(frictionIntensity < 0)
+      frictionIntensity = frictionIntensity * -1;
+
+    if(this.position.x < canvasFirstQuarter || this.position.x > canvasLastQuarter)
       Friction.applyFriction(this, frictionIntensity);
-    }
   }
 }
 

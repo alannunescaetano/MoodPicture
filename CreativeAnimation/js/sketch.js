@@ -8,8 +8,8 @@ function setup() {
   
   frameRate(60);
   
-  for(let i = 0; i < 100; i=i+10) {
-    particleLines.push(new ParticleLine(i, 1));
+  for(let i = 0; i < 10; i=i+10) {
+    particleLines.push(new ParticleLine(50, 1));
   }
 }
 
