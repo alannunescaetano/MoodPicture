@@ -1,10 +1,9 @@
 class AttractionPoint {
     
-  constructor(position, attractionIntensity) {
+  constructor(position) {
     this.position = position;
-    this.size = 1;
-    this.mass = 1;
-    this.attractionIntensity = attractionIntensity;
+    this.size = 5;
+    this.mass = 500;
   }
   
   draw() {
