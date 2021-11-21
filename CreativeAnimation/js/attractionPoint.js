@@ -1,9 +1,9 @@
 class AttractionPoint {
     
-  constructor(position) {
+  constructor(position, mass) {
     this.position = position;
     this.size = 5;
-    this.mass = 100;
+    this.mass = mass;
   }
   
   draw() {
@@ -21,8 +21,6 @@ class AttractionPoint {
 
     let force = p5.Vector.sub(this.position, particle.position);
     let distanceSq = constrain(force.magSq(), 100, 1000);
-
-    //distance = constrain(distance, 5.0, 25.0);
  
     force.normalize();
     let strength = (G * this.mass * particle.mass) / distanceSq;

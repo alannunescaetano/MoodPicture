@@ -1,5 +1,5 @@
 var particles = [];
-var attractionPoint;
+var attractionPoints = [];
 let testingCollision = false;
 
 function setup() {
@@ -7,12 +7,13 @@ function setup() {
   
   frameRate(60);
   
-  attractionPoint = new AttractionPoint(createVector(width/2, height/2));
+  attractionPoints.push(new AttractionPoint(createVector(width/2, 100), 400));
+
 
   if(testingCollision) {
     testCollision();
   } else {
-    for(let i = 0; i < 500; i++) {
+    for(let i = 0; i < 100; i++) {
       particles.push(new Particle(createVector(random(0, width), random(0, height))));
     }
   }
@@ -21,9 +22,6 @@ function setup() {
 function testCollision() {
   particles.push(new Particle(createVector(100, 100)));
   particles.push(new Particle(createVector(200, 100)));
-
-  //particles[0].applyForce(createVector(0.3, 0));
-  //particles[1].applyForce(createVector(-0.2, 0));
 }
 
 function draw() {
@@ -33,11 +31,15 @@ function draw() {
     shakeParticles();
   }
 
-  attractionPoint.draw();
+  for(let attractionPoint of attractionPoints) {
+    attractionPoint.draw();
+    for(let particle of particles) {
+      attractionPoint.applyGravitationalForce(particle);
+    }
+  }
   
   for(let particle of particles) {
     checkForCollisions(particle);
-    attractionPoint.applyGravitationalForce(particle);
     particle.applyFriction();
     particle.update();
     particle.draw();
