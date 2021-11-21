@@ -11,7 +11,6 @@ function setup() {
   for(let i = 0; i < 60; i++) {
     particles.push(new Particle(createVector(random(0, width), random(0, height))));
   }
-  
 }
 
 function draw() {
@@ -26,6 +25,7 @@ function draw() {
   for(let particle of particles) {
     checkForCollisions(particle);
     attractionPoint.applyGravitationalForce(particle);
+    particle.applyFriction();
     particle.update();
     particle.draw();
   }  

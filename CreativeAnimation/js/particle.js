@@ -87,6 +87,16 @@ class Particle {
     }
   }
 
+  applyFriction() {
+    let c = 0.01;
+    let friction = this.velocity.copy();
+    friction.mult(-1);
+    friction.normalize();
+    friction.mult(c);
+ 
+    this.applyForce(friction);
+  }
+
   shake() {
     
   }
