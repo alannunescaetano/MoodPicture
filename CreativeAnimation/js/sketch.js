@@ -1,5 +1,6 @@
 var particles = [];
 var attractionPoint;
+let testingCollision = false;
 
 function setup() {
   createCanvas(600, 600);
@@ -8,9 +9,21 @@ function setup() {
   
   attractionPoint = new AttractionPoint(createVector(width/2, height/2));
 
-  for(let i = 0; i < 60; i++) {
-    particles.push(new Particle(createVector(random(0, width), random(0, height))));
+  if(testingCollision) {
+    testCollision();
+  } else {
+    for(let i = 0; i < 500; i++) {
+      particles.push(new Particle(createVector(random(0, width), random(0, height))));
+    }
   }
+}
+
+function testCollision() {
+  particles.push(new Particle(createVector(100, 100)));
+  particles.push(new Particle(createVector(200, 100)));
+
+  //particles[0].applyForce(createVector(0.3, 0));
+  //particles[1].applyForce(createVector(-0.2, 0));
 }
 
 function draw() {

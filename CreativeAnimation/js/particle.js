@@ -5,11 +5,13 @@ class Particle {
     this.position = position;
     this.velocity = createVector(0, 0);
     this.acceleration = createVector(0, 0);
-    this.radius = 10;
-    this.mass = 1;
+    this.radius = 3;
+    this.mass = 100;
   }
 
   draw() {
+    fill(250, 100, 50);
+
     ellipse(
       this.position.x,
       this.position.y,
@@ -29,6 +31,7 @@ class Particle {
   update() {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
+    this.acceleration.set(0, 0);
   }
 
   checkForCollision(particle) {   
@@ -36,7 +39,16 @@ class Particle {
 
     // reposition to avoid the impact twice
     if (d < this.radius + particle.radius) {
+
       let reposition = p5.Vector.sub(this.position, particle.position);
+
+      if (this.position.y < particle.position.y) {
+        let dist = particle.position.y - this.position.y;
+        reposition.y -= dist - (this.radius + particle.radius)
+      } else if(this.position.y > particle.position.y) {
+        let dist = this.position.y - particle.position.y;
+        reposition.y += dist - (this.radius + particle.radius)
+      }
 
       if (this.position.x < particle.position.x) {
         let dist = particle.position.x - this.position.x;
@@ -46,54 +58,24 @@ class Particle {
         reposition.x += dist - (this.radius + particle.radius);
       }
 
-      if (this.position.y < particle.position.y) {
-        let dist = this.position.y - particle.position.y;
-        reposition.y -= dist - (this.radius + particle.radius)
-      } else if(this.position.y > particle.position.y) {
-        let dist = particle.position.y - this.position.y;
-        reposition.y += dist - (this.radius + particle.radius)
-      }
-     
       this.position.add(reposition);
 
-      //change of direction
-      let velocityChange = p5.Vector.sub(this.velocity, particle.velocity);
-      print("velocityChange: "+velocityChange)
+      //change of direction      
+      this.velocity.x = -this.velocity.x / 3;
+      this.velocity.y = -this.velocity.y / 3;
 
-      print("antes this: "+this.velocity)
-      print("antes particle: "+particle.velocity)
-
-      if (this.velocity.x < particle.velocity.x) {
-        this.velocity.x -= velocityChange.x;
-        particle.velocity.x += velocityChange.x;
-      } else if (this.velocity.x > particle.velocity.x) {
-        this.velocity.x += velocityChange.x;
-        particle.velocity.x -= velocityChange.x;
-      }
-
-      if (this.velocity.y < particle.velocity.y) {
-        this.velocity.y -= velocityChange.y;
-        particle.velocity.y += velocityChange.y;
-      } else if (this.velocity.y > particle.velocity.y) {
-        this.velocity.y += velocityChange.y;
-        particle.velocity.y -= velocityChange.y;
-      }
-
-      this.acceleration = createVector(0, 0);
-      particle.acceleration = createVector(0, 0);
-
-      print("depois this: "+this.velocity)
-      print("depois particle: "+particle.velocity)
+      particle.velocity.x = -particle.velocity.x / 3;
+      particle.velocity.y = -particle.velocity.y / 3;
     }
   }
 
   applyFriction() {
     let c = 0.01;
     let friction = this.velocity.copy();
-    friction.mult(-1);
     friction.normalize();
+    friction.mult(-1);    
     friction.mult(c);
- 
+
     this.applyForce(friction);
   }
 
