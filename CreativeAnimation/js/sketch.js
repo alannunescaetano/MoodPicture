@@ -1,61 +1,28 @@
-var particles = [];
-var attractionPoints = [];
-let testingCollision = false;
+var clusters = [];
 
 function setup() {
   createCanvas(600, 600);
-  
   frameRate(60);
   
-  attractionPoints.push(new AttractionPoint(createVector(width/2, 100), 400));
+  clusters.push(new Cluster(createVector(200, 170), 100));
+  clusters.push(new Cluster(createVector(200, 200), 100));
+  clusters.push(new Cluster(createVector(200, 240), 10));
+  clusters.push(new Cluster(createVector(200, 260), 10));
+  clusters.push(new Cluster(createVector(170, 300), 100));
+  clusters.push(new Cluster(createVector(230, 300), 100));
+  clusters.push(new Cluster(createVector(170, 380), 100));
+  clusters.push(new Cluster(createVector(230, 380), 100));
 
-
-  if(testingCollision) {
-    testCollision();
-  } else {
-    for(let i = 0; i < 100; i++) {
-      particles.push(new Particle(createVector(random(0, width), random(0, height))));
-    }
-  }
-}
-
-function testCollision() {
-  particles.push(new Particle(createVector(100, 100)));
-  particles.push(new Particle(createVector(200, 100)));
 }
 
 function draw() {
   background(220, 220 , 220, 100);
-  
-  if (keyIsDown(LEFT_ARROW)) {
-    shakeParticles();
-  }
 
-  for(let attractionPoint of attractionPoints) {
-    attractionPoint.draw();
-    for(let particle of particles) {
-      attractionPoint.applyGravitationalForce(particle);
+  for(let cluster of clusters) {
+    if (keyIsDown(LEFT_ARROW)) {
+      cluster.shakeParticles();
     }
-  }
-  
-  for(let particle of particles) {
-    checkForCollisions(particle);
-    particle.applyFriction();
-    particle.update();
-    particle.draw();
-  }  
-}
 
-function checkForCollisions(particle) {
-  for(let p of particles) {
-    if(particle !== p) {
-      particle.checkForCollision(p);
-    }
-  }
-}
-
-function shakeParticles() {
-  for(let particle of particles) {
-    particle.shake();
+    cluster.update();
   }
 }
