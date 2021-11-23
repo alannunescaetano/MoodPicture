@@ -80,7 +80,27 @@ class Particle {
   }
 
   shake() {
-    
+
+    let force;
+
+    switch (random(['1', '2', '3', '4'])) {
+      case '1':
+        force = createVector(0, 100);
+        break;
+      case '2':
+        force = createVector(0, -100);
+        break;
+      case '3':
+        force = createVector(100, 0);
+        break;
+      case '4':
+        force = createVector(-100, 0);
+        break;
+      default:
+        break;
+    }
+
+    this.applyForce(force);
   }
 }
 
