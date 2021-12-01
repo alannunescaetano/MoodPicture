@@ -1,11 +1,11 @@
 
 
 class Particle {
-  constructor(position) {
+  constructor(position, radius = 3, velocity = createVector(0, 0)) {
     this.position = position;
-    this.velocity = createVector(0, 0);
+    this.velocity = velocity;
     this.acceleration = createVector(0, 0);
-    this.radius = 3;
+    this.radius = radius;
     this.mass = 100;
   }
 
@@ -101,6 +101,14 @@ class Particle {
     }
 
     this.applyForce(force);
+  }
+
+  reduceSize(rate) {
+    this.radius -= rate;
+  }
+
+  isDead() {
+    return this.radius <= 0;
   }
 }
 

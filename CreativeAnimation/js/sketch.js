@@ -15,8 +15,10 @@ function setup() {
 }
 
 function draw() {
-  background(220, 220 , 220, 120);
+  blendMode(BLEND);
+  background(0, 0 , 0, 100);
 
+  blendMode(LIGHTEST);
   noStroke();
 
   for(let cluster of clusters) {
@@ -24,12 +26,16 @@ function draw() {
       cluster.shakeParticles();
     }
 
+    cluster.emitParticle();
     cluster.update();
   }
 }
 
 function keyPressed() {
   for(let cluster of clusters) {
-    cluster.shakeParticles();
+    //cluster.shakeParticles();
+    cluster.particleSpeed += 1;
+    print(cluster.particleSpeed);
+
   }
 }

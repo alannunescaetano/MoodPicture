@@ -2,7 +2,7 @@ class AttractionPoint {
     
   constructor(position, mass) {
     this.position = position;
-    this.size = 5;
+    this.size = mass;
     this.mass = mass;
   }
   
@@ -25,6 +25,15 @@ class AttractionPoint {
     force.normalize();
     let strength = (G * this.mass * particle.mass) / distanceSq;
     force.setMag(strength);
+    
+    particle.applyForce(force);
+  }
+
+  disperseParticle(particle, strength) {
+    let force = p5.Vector.sub(this.position, particle.position);
+    force.normalize();
+    force.setMag(strength);
+    p5.Vector.mult(force, -1);
     
     particle.applyForce(force);
   }
