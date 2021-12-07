@@ -1,16 +1,17 @@
 
 
 class Particle {
-  constructor(position, radius = 3, velocity = createVector(0, 0)) {
+  constructor(position, radius = 3, velocity = createVector(0, 0), color) {
     this.position = position;
     this.velocity = velocity;
     this.acceleration = createVector(0, 0);
     this.radius = radius;
     this.mass = 100;
+    this.color = color;
   }
 
   draw() {
-    fill(250, 100, 50);
+    fill(this.color);
 
     ellipse(
       this.position.x,

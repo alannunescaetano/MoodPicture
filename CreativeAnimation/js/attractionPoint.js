@@ -7,13 +7,7 @@ class AttractionPoint {
   }
   
   draw() {
-    fill(100, 0, 250);
-
-    ellipse(
-      this.position.x,
-      this.position.y,
-      this.size
-    )
+    
   }
   
   applyGravitationalForce(particle) {

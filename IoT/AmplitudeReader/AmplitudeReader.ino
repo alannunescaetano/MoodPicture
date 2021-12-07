@@ -1,11 +1,11 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
-#include <Arduino_JSON.h>
 
 const char* ssid = "NOS-A997";
 const char* password = "5UGMKT1E";
+const int soundSensorPIN = 5;
 
-String serverName = "http://192.168.1.184:80/";
+String serverName = "http://192.168.1.17:80/";
 
 unsigned long lastTimeSentRequest = 0;
 unsigned long timerDelayToSendRequest = 0.1 * 60 * 1000;
@@ -16,6 +16,9 @@ int avgAmplitude = 0;
 
 void setup() {
   Serial.begin(115200); 
+  pinMode(5, INPUT);
+
+  //pinMode(soundSensorPIN, OUTPUT);
   
   lastTimeSentRequest = millis();
 }
@@ -40,20 +43,19 @@ void loop() {
 }
 
 void readAmplitude() {
-  int amplitude = 0;
-  //Code to read the sound
-
-  amplitude = random(0, 1023);
+  analogReadResolution(8);
+  int amplitude = analogRead(soundSensorPIN);
+  analogReadResolution(11);
+  analogSetAttenuation(ADC_6db);
 
   long amplitudeSum = (numberOfReadings * avgAmplitude) + amplitude;
-  Serial.println(String("numberOfReadings: ") + String(numberOfReadings) + String(" - avgAmplitude: ") + String(avgAmplitude));
-
   avgAmplitude = amplitudeSum / ++numberOfReadings;
-  Serial.println(String("avgAmplitude: ") + String(avgAmplitude) + String(" - numberOfReadings: ") + String(numberOfReadings));
 
   if(amplitude > maxAmplitude) {
     maxAmplitude = amplitude;
   }
+  Serial.println(String("Amplitude: ") + String(amplitude));
+  Serial.println(String("numberOfReadings: ") + String(numberOfReadings) + String(" - avgAmplitude: ") + String(avgAmplitude)+ String(" - MAX: ") + String(maxAmplitude));
 }
 
 void sendRequestWithAmplitude() {

@@ -1,36 +1,22 @@
 
 class Cluster {
-    constructor(position, weight) {
+    constructor(position, weight, particleColor) {
         this.position = position.copy();
-        this.attractionPoint = new AttractionPoint(position, weight);
+        this.weight = weight;
         this.particles = [];
-        this.particleSize = 50;
         this.initialParticleSpeed = 2;
         this.particleSpeed = this.initialParticleSpeed;
-        
-        
-        /*for(let i = 0; i < weight; i++) {
-            this.particles.push(
-                new Particle(
-                    createVector(
-                        random(position.x - weight/2, position.x +  weight/2),
-                        random(position.y -  weight/2, position.y +  weight/2)
-                    ),
-                )
-            ) 
-        }*/
+        this.temperature = 0;
+        this.particleColor = particleColor;
     }
 
     update() {
-        this.attractionPoint.draw();
-          
+        
         this.checkParticlesLifeTime();
 
         this.particleSpeed = this.particleSpeed <= this.initialParticleSpeed ? this.initialParticleSpeed :  this.particleSpeed - 0.01;
 
         for(let particle of this.particles) {
-            //this.attractionPoint.applyGravitationalForce(particle);
-            //this.checkForCollisions(particle);
 
             particle.reduceSize(1);
             particle.applyFriction();
@@ -57,7 +43,7 @@ class Cluster {
             particle.checkForCollision(p);
           }
         }
-      }
+    }
       
     shakeParticles() {
         for(let particle of this.particles) {
@@ -74,9 +60,10 @@ class Cluster {
         velocity.setMag(this.particleSpeed);
 
         let particle = new Particle(
-            this.position.copy(), 
-            this.particleSize,
-            velocity
+            this.position.copy(),
+            this.weight,
+            velocity,
+            this.particleColor
         );
 
         this.particles.push(particle);

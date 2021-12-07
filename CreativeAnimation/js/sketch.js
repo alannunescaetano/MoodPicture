@@ -1,41 +1,89 @@
 var clusters = [];
+var particleTemperature = 0;
+
+let amplitudeButton;
+let stressButton;
+
+// Usar  mudança de formato
+
+function preload() {
+  img = loadImage('assets/white-silhouette.png');
+}
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
+  createButtons();
+
   frameRate(60);
   
-  clusters.push(new Cluster(createVector(200, 170), 100));
-  clusters.push(new Cluster(createVector(200, 200), 100));
-  clusters.push(new Cluster(createVector(200, 240), 10));
-  clusters.push(new Cluster(createVector(200, 260), 10));
-  clusters.push(new Cluster(createVector(170, 300), 100));
-  clusters.push(new Cluster(createVector(230, 300), 100));
-  clusters.push(new Cluster(createVector(170, 380), 100));
-  clusters.push(new Cluster(createVector(230, 380), 100));
+  var color = getParticleColor();
+
+  clusters.push(new Cluster(createVector(width/2, 250), 100, color));
+  clusters.push(new Cluster(createVector(width/2, 600), 170, color));
+
 }
 
 function draw() {
   blendMode(BLEND);
-  background(0, 0 , 0, 100);
+  background(0, 0, 0, 100);
 
   blendMode(LIGHTEST);
+  drawSilhoutte();
+
   noStroke();
-
+  
   for(let cluster of clusters) {
-    if (keyIsDown(LEFT_ARROW)) {
-      cluster.shakeParticles();
-    }
-
+    cluster.particleColor = getParticleColor();
     cluster.emitParticle();
     cluster.update();
   }
+
+  if(particleTemperature > 0) {
+    particleTemperature -= 0.2;
+  }
 }
 
-function keyPressed() {
-  for(let cluster of clusters) {
-    //cluster.shakeParticles();
-    cluster.particleSpeed += 1;
-    print(cluster.particleSpeed);
+function createButtons() {
+  stressButton = createButton('Add stress');
+  stressButton.position(0, 0);
+  stressButton.mousePressed(addStress);
 
+  amplitudeButton = createButton('Add amplitude');
+  amplitudeButton.position(0, 30);
+  amplitudeButton.mousePressed(addAmplitude);
+}
+
+function addAmplitude() {
+  for(let cluster of clusters) {
+    cluster.particleSpeed += 1;
   }
+}
+
+function addStress() {
+  if (particleTemperature <= 99) {
+    particleTemperature += 10;
+  }
+}
+
+function getParticleColor() {
+  let blue = map(particleTemperature, 100, 0, 0, 255);
+  let red = 255 - blue;
+
+  let proximityToMidTemperature = particleTemperature - 100;
+  if(proximityToMidTemperature < 0) {
+    proximityToMidTemperature = proximityToMidTemperature * -1;
+  }
+
+  let green = map(proximityToMidTemperature, 0, 50, 0, 255);
+  
+  return color(red, green, blue);
+}
+
+function drawSilhoutte() {
+
+  fill(170, 170, 170);
+  noStroke();
+  ellipse(width/2, 250, 220);
+
+  square(width/2 - 350/2, 400, 350, 90, 90, 0, 0);
 }
