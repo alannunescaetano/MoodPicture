@@ -5,7 +5,7 @@ const char* ssid = "NOS-A997";
 const char* password = "5UGMKT1E";
 const int soundSensorPIN = 5;
 
-String serverName = "http://192.168.1.17:80/";
+String serverName = "http://192.168.1.19:80/";
 
 unsigned long lastTimeSentRequest = 0;
 unsigned long timerDelayToSendRequest = 0.1 * 60 * 1000;
@@ -13,6 +13,7 @@ unsigned long timerDelayToSendRequest = 0.1 * 60 * 1000;
 int numberOfReadings = 0;
 int maxAmplitude = 0;
 int avgAmplitude = 0;
+String sessionId;
 
 void setup() {
   Serial.begin(115200); 
@@ -21,6 +22,8 @@ void setup() {
   //pinMode(soundSensorPIN, OUTPUT);
   
   lastTimeSentRequest = millis();
+  sessionId = String(millis());
+  Serial.println("sessionId: " + sessionId);
 }
 
 void loop() {
@@ -54,8 +57,6 @@ void readAmplitude() {
   if(amplitude > maxAmplitude) {
     maxAmplitude = amplitude;
   }
-  Serial.println(String("Amplitude: ") + String(amplitude));
-  Serial.println(String("numberOfReadings: ") + String(numberOfReadings) + String(" - avgAmplitude: ") + String(avgAmplitude)+ String(" - MAX: ") + String(maxAmplitude));
 }
 
 void sendRequestWithAmplitude() {
@@ -64,7 +65,7 @@ void sendRequestWithAmplitude() {
   http.begin(serverName.c_str());
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
-  String json = String(" { \"maxAmplitude\" : \"")+String(maxAmplitude)+String("\", \"avgAmplitude\" : \"")+String(avgAmplitude)+String("\" } ");
+  String json = String(" { \"sessionId\" : \"")+String(sessionId)+String("\", \"maxAmplitude\" : \"")+String(maxAmplitude)+String("\", \"averageAmplitude\" : \"")+String(avgAmplitude)+String("\" } ");
 
   Serial.println("Sending request: " + json);
 
