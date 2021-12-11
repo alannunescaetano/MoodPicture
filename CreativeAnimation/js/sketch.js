@@ -4,11 +4,9 @@ var particleTemperature = 0;
 let amplitudeButton;
 let stressButton;
 
-// Usar  mudança de formato
+let once = true;
 
-function preload() {
-  img = loadImage('assets/white-silhouette.png');
-}
+// Usar  mudança de formato
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -20,10 +18,13 @@ function setup() {
 
   clusters.push(new Cluster(createVector(width/2, 250), 100, color));
   clusters.push(new Cluster(createVector(width/2, 600), 170, color));
-
 }
 
 function draw() {
+
+
+  
+
   blendMode(BLEND);
   background(0, 0, 0, 100);
 
@@ -55,7 +56,9 @@ function createButtons() {
 
 function addAmplitude() {
   for(let cluster of clusters) {
-    cluster.particleSpeed += 1;
+    if (cluster.particleSpeed <= 9) {
+      cluster.particleSpeed += 1;
+    }
   }
 }
 

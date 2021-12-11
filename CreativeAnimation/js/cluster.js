@@ -1,4 +1,3 @@
-
 class Cluster {
     constructor(position, weight, particleColor) {
         this.position = position.copy();
@@ -17,8 +16,7 @@ class Cluster {
         this.particleSpeed = this.particleSpeed <= this.initialParticleSpeed ? this.initialParticleSpeed :  this.particleSpeed - 0.01;
 
         for(let particle of this.particles) {
-
-            particle.reduceSize(1);
+            particle.reduceSize(0.5 * this.particleSpeed);
             particle.applyFriction();
             particle.update();
             particle.draw();
@@ -30,28 +28,15 @@ class Cluster {
             return;
         }
 
-        for(let i = this.particles.length-1; i > 0; i--) {
+        for(let i = this.particles.length-1; i > -1; i--) {
             if(this.particles[i].isDead()) {
                 this.particles.splice(i, 1);
             }
         }
     }
 
-    checkForCollisions(particle) {
-        for(let p of this.particles) {
-          if(particle !== p) {
-            particle.checkForCollision(p);
-          }
-        }
-    }
-      
-    shakeParticles() {
-        for(let particle of this.particles) {
-            this.attractionPoint.disperseParticle(particle, 500);
-        }
-    }
-
     emitParticle() {
+        
         let velocity = createVector(
             random(-1, 1),
             random(-1, 1)
