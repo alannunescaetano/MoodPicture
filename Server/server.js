@@ -5,7 +5,7 @@ let dbManager = require('./persistence/dbManager.js');
 let repository = require('./persistence/sensorReadingsRepository.js');
 
 
-const hostname = '192.168.1.19';
+const hostname = '10.72.27.108';
 const port = 80;
 
 const server = http.createServer(function(request, response) {
@@ -49,6 +49,7 @@ function handleGETRequest(urlString, response) {
   console.log(queryObject.sessionId);
 
   repository.getSensorReadings(queryObject.sessionId, (captureSession) => {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.writeHead(200, {'Content-Type': 'text/plain'});
     response.write(JSON.stringify(captureSession));
     response.statusCode = 200;

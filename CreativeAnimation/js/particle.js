@@ -42,7 +42,7 @@ class Particle {
     let c = 0.01;
     let friction = this.velocity.copy();
     friction.normalize();
-    friction.mult(-1);    
+    friction.mult(-1);
     friction.mult(c);
 
     this.applyForce(friction);

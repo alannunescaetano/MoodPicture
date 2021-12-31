@@ -1,16 +1,19 @@
 var clusters = [];
 var particleTemperature = 0;
+var sensorReadings;
+
+var lastReadingUpdate = Date.now();
+let readingUpdateInterval = 1.5 * 1000; //1 second
+var readingIndex = 0;
 
 let amplitudeButton;
 let stressButton;
-
-let once = true;
 
 // Usar  mudança de formato
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  createButtons();
+  //createButtons();
 
   frameRate(60);
   
@@ -18,12 +21,18 @@ function setup() {
 
   clusters.push(new Cluster(createVector(width/2, 250), 100, color));
   clusters.push(new Cluster(createVector(width/2, 600), 170, color));
+
+  Service.getSensorReadings((readings) => {
+    this.sensorReadings = readings;
+  });
 }
 
 function draw() {
 
-
-  
+  if(Date.now() - lastReadingUpdate > readingUpdateInterval) {
+    lastReadingUpdate = Date.now();
+    updateReadings();
+  }
 
   blendMode(BLEND);
   background(0, 0, 0, 100);
@@ -40,7 +49,27 @@ function draw() {
   }
 
   if(particleTemperature > 0) {
-    particleTemperature -= 0.2;
+    particleTemperature -= 0.05;
+  }
+}
+
+function updateReadings() {
+  if(sensorReadings) {
+    let reading = sensorReadings[readingIndex];
+    print(reading)
+
+    if(reading.MaxAmplitude > 100) {
+      addAmplitude(2);
+      addStress(2);
+    } else if(reading.MaxAmplitude > 100) {
+      addAmplitude(1);
+      addStress(1);
+    }
+
+    readingIndex++;
+    if(readingIndex >= sensorReadings.length) {
+      readingIndex = 0;
+    }
   }
 }
 
@@ -54,17 +83,17 @@ function createButtons() {
   amplitudeButton.mousePressed(addAmplitude);
 }
 
-function addAmplitude() {
+function addAmplitude(level) {
   for(let cluster of clusters) {
     if (cluster.particleSpeed <= 9) {
-      cluster.particleSpeed += 1;
+      cluster.particleSpeed += level;
     }
   }
 }
 
-function addStress() {
+function addStress(level) {
   if (particleTemperature <= 99) {
-    particleTemperature += 10;
+    particleTemperature += 10 * level;
   }
 }
 
@@ -90,3 +119,4 @@ function drawSilhoutte() {
 
   square(width/2 - 350/2, 400, 350, 90, 90, 0, 0);
 }
+
