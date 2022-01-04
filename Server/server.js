@@ -3,9 +3,9 @@ const querystring = require('querystring');
 const url = require('url');
 let dbManager = require('./persistence/dbManager.js');
 let repository = require('./persistence/sensorReadingsRepository.js');
+let smartAgent = require('./smart_agent/stress_detector.js');
 
-
-const hostname = '10.72.27.108';
+const hostname = '192.168.1.114';
 const port = 80;
 
 const server = http.createServer(function(request, response) {
@@ -23,6 +23,7 @@ server.listen(port, hostname, function() {
   console.log('Server running at http://'+ hostname + ':' + port + '/');
 
   dbManager.createDatabaseIfNotExists();
+  smartAgent.prepareSmartAgent();
 });
 
 function handlePOSTRequest(request, response) {
@@ -46,13 +47,18 @@ function handlePOSTRequest(request, response) {
 function handleGETRequest(urlString, response) {
   const queryObject = url.parse(urlString, true).query;
 
-  console.log(queryObject.sessionId);
-
-  repository.getSensorReadings(queryObject.sessionId, (captureSession) => {
-    response.setHeader('Access-Control-Allow-Origin', '*');
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.write(JSON.stringify(captureSession));
-    response.statusCode = 200;
-    response.end();
+  repository.getSensorReadings(queryObject.sessionId, (session) => {
+    smartAgent.processAllPeriods(queryObject.userPerception, session.readings, (results) => {
+      endGETRequest(response, results);
+    });
   });
 }
+
+function endGETRequest(response, results) {
+  response.setHeader('Access-Control-Allow-Origin', '*');
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.write(JSON.stringify(results));
+  response.statusCode = 200;
+  response.end();
+}
+

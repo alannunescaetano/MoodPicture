@@ -46,8 +46,6 @@ module.exports = {
 
                 console.log('Connected to the Mood Picture database.');
             });
-
-
         });
     }
 };

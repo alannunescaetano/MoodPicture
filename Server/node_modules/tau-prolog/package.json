@@ -1,0 +1,35 @@
+{
+	"name": "tau-prolog",
+	"version": "0.3.1",
+	"description": "An open source Prolog interpreter in JavaScript",
+	"main": "./modules/core.js",
+	"scripts": {
+		"example:fruit": "node examples/nodejs/fruit",
+		"example:promises": "node examples/nodejs/promises"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tau-prolog/tau-prolog.git"
+	},
+	"keywords": [
+		"tau-prolog",
+		"prolog-interpreter",
+		"iso-prolog-standard",
+		"javascript",
+		"prolog"
+	],
+	"files": [
+		"modules",
+		"examples"
+	],
+	"author": "José Antonio Riaza Valverde <riazavalverde@gmail.com> (http://jariaza.es)",
+	"license": "BSD-3-Clause",
+	"bugs": {
+		"url": "https://github.com/tau-prolog/tau-prolog/issues"
+	},
+	"homepage": "http://tau-prolog.org/",
+	"dependencies": {
+		"qunit": "^2.11.1",
+		"readline-sync": "1.4.9"
+	}
+}
