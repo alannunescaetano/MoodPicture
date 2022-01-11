@@ -5,7 +5,7 @@ let dbManager = require('./persistence/dbManager.js');
 let repository = require('./persistence/sensorReadingsRepository.js');
 let smartAgent = require('./smart_agent/stress_detector.js');
 
-const hostname = '192.168.1.114';
+const hostname = 'localhost';
 const port = 80;
 
 const server = http.createServer(function(request, response) {

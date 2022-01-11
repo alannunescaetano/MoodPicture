@@ -56,13 +56,17 @@ function draw() {
 function updateReadings() {
   if(sensorReadings) {
     let reading = sensorReadings[readingIndex];
-    print(reading)
+    console.log(reading)
 
     if(reading.MaxAmplitude > 100) {
       addAmplitude(2);
+    } 
+    
+    if(reading.stress == 'stressed') {
       addStress(2);
-    } else if(reading.MaxAmplitude > 100) {
-      addAmplitude(1);
+    }
+
+    if(reading.stress == 'residual_stress') {
       addStress(1);
     }
 

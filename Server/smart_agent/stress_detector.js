@@ -13,7 +13,17 @@ const program = `
     find_state(DIF, THRESHOLD, not_stressed) :- DIF < THRESHOLD. 
         
     check_history(stressed, _, stressed). 
-    check_history(not_stressed, [stressed, stressed, stressed], residual_stress). 
+    check_history(not_stressed, [stressed, stressed, stressed], residual_stress).
+
+    check_history(not_stressed, [_], not_stressed).
+    check_history(not_stressed, [_, _], not_stressed).
+    check_history(not_stressed, [not_stressed, _, _], not_stressed).
+    check_history(not_stressed, [_, not_stressed, _], not_stressed).
+    check_history(not_stressed, [_, _, not_stressed], not_stressed).
+    check_history(not_stressed, [residual_stress, _, _], not_stressed).
+    check_history(not_stressed, [_, residual_stress, _], not_stressed).
+    check_history(not_stressed, [_, _, residual_stress], not_stressed).
+
     check_history(not_stressed, HISTORY, not_stressed) :- HISTORY = [stressed, stressed, stressed].
 `;
 
@@ -61,11 +71,11 @@ function defineStressForPeriod(userMood, maxAmplitude, avgAmplitude, lastResults
                                 } else if(answer == "{STATE/residual_stress}") {
                                     resolve('residual_stress');
                                 } else {
-                                    resolve('no_stress');
+                                    resolve('not_stressed');
                                 }
                              },
                             error:   function(err) { console.log('ERRO 1'); },
-                            fail:    function() { resolve('no_stress'); console.log('ANSWER: FAIL');},
+                            fail:    function() { console.log('ANSWER: FAIL');},
                         })
                     },
                     error: function(err) { console.log('ERRO 2'); }
