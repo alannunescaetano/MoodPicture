@@ -15,6 +15,7 @@ const program = `
     check_history(stressed, _, stressed). 
     check_history(not_stressed, [stressed, stressed, stressed], residual_stress).
 
+    check_history(not_stressed, [], not_stressed).
     check_history(not_stressed, [_], not_stressed).
     check_history(not_stressed, [_, _], not_stressed).
     check_history(not_stressed, [not_stressed, _, _], not_stressed).
@@ -23,8 +24,6 @@ const program = `
     check_history(not_stressed, [residual_stress, _, _], not_stressed).
     check_history(not_stressed, [_, residual_stress, _], not_stressed).
     check_history(not_stressed, [_, _, residual_stress], not_stressed).
-
-    check_history(not_stressed, HISTORY, not_stressed) :- HISTORY = [stressed, stressed, stressed].
 `;
 
 module.exports = {

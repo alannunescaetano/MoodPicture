@@ -47,11 +47,17 @@ function handlePOSTRequest(request, response) {
 function handleGETRequest(urlString, response) {
   const queryObject = url.parse(urlString, true).query;
 
-  repository.getSensorReadings(queryObject.sessionId, (session) => {
-    smartAgent.processAllPeriods(queryObject.userPerception, session.readings, (results) => {
-      endGETRequest(response, results);
+  if(queryObject.sessionId) {
+    repository.getSensorReadings(queryObject.sessionId, (session) => {
+      smartAgent.processAllPeriods(queryObject.userPerception, session.readings, (results) => {
+        endGETRequest(response, results);
+      });
     });
-  });
+  } else {
+    repository.getAllSessions((sessions) => {
+      endGETRequest(response, sessions);
+    });
+  }
 }
 
 function endGETRequest(response, results) {

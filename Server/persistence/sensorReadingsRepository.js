@@ -32,6 +32,25 @@ module.exports = {
                 })
             }
         });
+    },
+
+    getAllSessions(sessionsRetrieved) {
+        let db = dbManager.getDatabase();
+    
+        let sql = 'SELECT ID as Id, START_TIME as StarTime, STRESS as Stress '
+                 +'FROM CAPTURE_SESSION ORDER BY START_TIME ';
+    
+        db.all(sql, (err, rows) => {
+            if (err) {
+                return console.error(err.message);
+            }
+
+            console.log(rows)
+    
+            db.close();
+    
+            sessionsRetrieved(rows);
+        });
     }
 };
 
