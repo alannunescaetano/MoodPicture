@@ -2,28 +2,45 @@ const pl = require("tau-prolog");
 const session = pl.create(1000);
 
 const program = `
-    :- use_module(library(lists)).
+:- use_module(library(lists)).
 
-    threshold(calm, 3).
-    threshold(angry, 2).
+  threshold(calm, 3).
+  threshold(angry, 2).
 
-    dist(INPUT, AMP_MAX, AMP_AVG, HISTORY, STATE) :- threshold(INPUT, THRESHOLD), DIF is AMP_MAX - AMP_AVG, find_state(DIF, THRESHOLD, STATE_TMP), check_history(STATE_TMP, HISTORY, STATE).  
-        
-    find_state(DIF, THRESHOLD, stressed) :- DIF >= THRESHOLD. 
-    find_state(DIF, THRESHOLD, not_stressed) :- DIF < THRESHOLD. 
-        
-    check_history(stressed, _, stressed). 
-    check_history(not_stressed, [stressed, stressed, stressed], residual_stress).
+  dist(INPUT, AMP_MAX, AMP_AVG, HISTORY, STATE) :- threshold(INPUT, THRESHOLD), DIF is AMP_MAX - AMP_AVG, find_state(DIF, THRESHOLD, STATE_TMP), check_history(STATE_TMP, HISTORY, STATE).  
+      
+  find_state(DIF, THRESHOLD, stressed) :- DIF >= THRESHOLD. 
+  find_state(DIF, THRESHOLD, not_stressed) :- DIF < THRESHOLD. 
+      
+  check_history(stressed, _, stressed).
 
-    check_history(not_stressed, [], not_stressed).
-    check_history(not_stressed, [_], not_stressed).
-    check_history(not_stressed, [_, _], not_stressed).
-    check_history(not_stressed, [not_stressed, _, _], not_stressed).
-    check_history(not_stressed, [_, not_stressed, _], not_stressed).
-    check_history(not_stressed, [_, _, not_stressed], not_stressed).
-    check_history(not_stressed, [residual_stress, _, _], not_stressed).
-    check_history(not_stressed, [_, residual_stress, _], not_stressed).
-    check_history(not_stressed, [_, _, residual_stress], not_stressed).
+  check_history(not_stressed, HISTORY, residual_stress) :- count_stressed(HISTORY, N), N > 3.
+
+  check_history(not_stressed, HISTORY, residual_stress) :- last_3_consecutive_stressed(HISTORY).
+
+  check_history(not_stressed, HISTORY, residual_stress) :- intermittent_stress(HISTORY).
+
+  check_history(not_stressed, HISTORY, not_stressed) :- 
+  count_stressed(HISTORY, N), N =< 3,
+  \\\+ last_3_consecutive_stressed(HISTORY),
+  \\\+ intermittent_stress(HISTORY).
+
+  count_stressed([],0).
+  count_stressed([H|Tail], N) :-
+  count_stressed(Tail, N1),
+  (  H = stressed
+  -> N is N1 + 1
+  ;  N = N1
+  ).
+
+  intermittent_stress([stressed, not_stressed, stressed, not_stressed, stressed]).
+  intermittent_stress([stressed, not_stressed, stressed, residual_stress, stressed]).
+  intermittent_stress([stressed, residual_stress, stressed, not_stressed, stressed]).
+  intermittent_stress([stressed, residual_stress, stressed, residual_stress, stressed]).
+
+  last_3_consecutive_stressed([stressed, stressed, stressed]).
+  last_3_consecutive_stressed([_, stressed, stressed, stressed]).
+  last_3_consecutive_stressed([_, _, stressed, stressed, stressed]).
 `;
 
 module.exports = {
@@ -38,7 +55,7 @@ module.exports = {
     
             for(let reading of readings) {
                 await defineStressForPeriod(userMood, translateAmplitude(reading.MaxAmplitude), translateAmplitude(reading.AverageAmplitude), '['+lastStressDefinitions.toString()+']').then((stressDefinition) => {
-                  if(lastStressDefinitions.length > 2) {
+                  if(lastStressDefinitions.length > 4) {
                     lastStressDefinitions.splice(0, 1);
                   }
                   
@@ -73,7 +90,7 @@ function defineStressForPeriod(userMood, maxAmplitude, avgAmplitude, lastResults
                                     resolve('not_stressed');
                                 }
                              },
-                            error:   function(err) { console.log('ERRO 1'); },
+                            error:   function(err) { console.log('ERRO 1: '+err); },
                             fail:    function() { console.log('ANSWER: FAIL');},
                         })
                     },
